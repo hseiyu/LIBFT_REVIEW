@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:00:36 by shata             #+#    #+#             */
-/*   Updated: 2024/11/22 20:18:07 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 18:54:36 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,20 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-// #include <stdio.h>
+#include <stdio.h>
+#include <string.h>
+
+#ifdef TEST
+# define ft_memcpy memcpy
+#endif
 
 // int	main(void)
 // {
-// 	char	src[] = "Hello, world!";
-// 	char	dst[20] = "";
+// 	char	*src;
+// 	char	*dst;
 
+// 	src = NULL;
+// 	dst = NULL;
 // 	printf("before\n");
 // 	printf("dst: %s\nsrc: %s\n\n", dst, src);
 // 	ft_memcpy(dst, src, 1);

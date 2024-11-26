@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:01:18 by shata             #+#    #+#             */
-/*   Updated: 2024/11/21 21:15:14 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:25:51 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	f;
-	size_t	s;
+	size_t	big_index;
+	size_t	little_index;
 
-	f = 0;
+	big_index = 0;
 	if (*little == '\0')
 		return ((char *)big);
-	while (big[f] != '\0' && f < len)
+	while (big[big_index] != '\0' && big_index < len)
 	{
-		s = 0;
-		while ((f + s) < len && big[f + s] == little[s] && little[s] != '\0')
-			s++;
-		if (little[s] == '\0')
-			return ((char *)&big[f]);
-		f++;
+		little_index = 0;
+		while ((big_index + little_index) < len && big[big_index
+			+ little_index] == little[little_index]
+			&& little[little_index] != '\0')
+			little_index++;
+		if (little[little_index] == '\0')
+			return ((char *)&big[big_index]);
+		big_index++;
 	}
 	return (NULL);
 }
@@ -39,8 +41,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // 	char little[] = "World";
 // 	char *result;
 
-// 	result = ft_strnstr(big, little, 15); // len を指定して検索
-// 	if (result)
+// 	result = big_it_strnstr(big, little, 15); // len を指定して検索
+// 	ibig_i (result)
 // 		printf("Found: %s\n", result);
 // 	else
 // 		printf("Not found\n");

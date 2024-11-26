@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:00:40 by shata             #+#    #+#             */
-/*   Updated: 2024/11/20 18:20:03 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 18:55:52 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t			i;
 	unsigned char	*bs;
 
+	if (s == NULL)
+		return (NULL);
 	bs = (unsigned char *)s;
 	i = 0;
 	while (i < n)

@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 14:59:52 by shata             #+#    #+#             */
-/*   Updated: 2024/11/22 21:19:00 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:36:34 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (size == 0 || count == 0)
+		return (NULL);
+	if (count <= __SIZE_MAX__ / size)
+		return (NULL);
 	if ((0 == size || 0 == count) || (count <= __SIZE_MAX__ / size))
 	{
 		ptr = malloc(count * size);

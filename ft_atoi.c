@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 14:59:27 by shata             #+#    #+#             */
-/*   Updated: 2024/11/22 21:18:58 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:22:02 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static long	consideration_overflow(char *str, int sign)
 	while ('0' <= *str && *str <= '9')
 	{
 		digit = *str - '0';
-		if (0 < result && sign == 1 && result > (over - digit) / 10)
+		if (sign == 1 && result > LONG_MAX)
 			return (LONG_MAX);
 		if (0 < result && sign == -1 && result > (over - digit + 1) / 10)
 			return (LONG_MIN);
@@ -33,6 +33,10 @@ static long	consideration_overflow(char *str, int sign)
 	}
 	return (result);
 }
+
+/*
+
+*/
 
 int	ft_atoi(const char *str)
 {

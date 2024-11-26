@@ -6,7 +6,7 @@
 /*   By: shata <shata@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:00:28 by shata             #+#    #+#             */
-/*   Updated: 2024/11/21 19:18:50 by shata            ###   ########.fr       */
+/*   Updated: 2024/11/26 19:05:01 by shata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,19 @@ void	*ft_memchr(const void *b, int c, size_t len)
 	}
 	return (NULL);
 }
-// #include <stdio.h>
+#include <stdio.h>
+#include <string.h>
 
-// int	main(void)
-// {
-// 	const char	*data = "Hello, World!";
-// 	char		*result;
+#ifdef TEST
+# define ft_memchr memchr
+#endif
 
-// 	result = (char *)ft_memchr(data, 'W', 13);
-// 	if (result)
-// 		printf("Found: %s\n", result);
-// 	else
-// 		printf("Not found\n");
-// 	return (0);
-// }
+int	main(void)
+{
+	const char	*data = "Hello, World!";
+	char		*result;
+
+	result = (char *)ft_memchr(data, 0, 13);
+	printf("Found: %p\n", result);
+	return (0);
+}
